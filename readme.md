@@ -2,6 +2,7 @@
 
 [![Build Status](https://semaphoreci.com/api/v1/ir/ignite-ir-boilerplate/branches/master/badge.svg)](https://semaphoreci.com/ir/ignite-ir-boilerplate)
 
+Based on the work of the great boilerplate of react native : https://github.com/infinitered/ignite-ir-boilerplate
 
 
 ## The latest and greatest boilerplate for Infinite Red opinions

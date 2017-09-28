@@ -6,6 +6,7 @@
     "list",
     "redux",
     "saga",
-    "screen"
+    "screen",
+    "modal"
   ]
 }

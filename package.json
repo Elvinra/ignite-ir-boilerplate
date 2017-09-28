@@ -1,10 +1,10 @@
 {
-  "name": "ignite-ir-boilerplate",
-  "description": "Infinite Red's hot boilerplate for React Native.",
+  "name": "elvinra-ir-boilerplate",
+  "description": "Elvinra's hot boilerplate for React Native.",
   "license": "MIT",
-  "repository": "infinitered/ignite-ir-boilerplate",
-  "homepage": "https://github.com/infinitered/ignite-ir-boilerplate",
-  "version": "2.1.1",
+  "repository": "Elvinra/ignite-ir-boilerplate",
+  "homepage": "https://github.com/Elvinra/ignite-ir-boilerplate",
+  "version": "2.1.2",
   "files": [
     "boilerplate",
     "commands",
@@ -18,9 +18,9 @@
     "screenExamples.js"
   ],
   "author": {
-    "name": "Infinite Red",
-    "email": "npm@infinite.red",
-    "url": "https://github.com/infinitered/ignite-ir-boilerplate"
+    "name": "Elvinra",
+    "email": "f.didierjean@ideematic.com",
+    "url": "https://github.com/Elvinra/ignite-ir-boilerplate"
   },
   "scripts": {
     "lint": "standard",
