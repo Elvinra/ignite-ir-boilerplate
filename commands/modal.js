@@ -48,7 +48,7 @@ module.exports = async function (context) {
 
     // insert screen import
     ignite.patchInFile(appNavFilePath, {
-      after: patterns[patterns.constants.PATTERN_IMPORTS_MODALS],
+      after: patterns[patterns.constants.PATTERN_IMPORTS],
       insert: importToAdd
     })
 
