@@ -15,7 +15,8 @@
     "options.js",
     "plugin.js",
     "readme.md",
-    "screenExamples.js"
+    "screenExamples.js",
+    ".env.example"
   ],
   "author": {
     "name": "Elvinra",
