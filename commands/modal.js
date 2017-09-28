@@ -10,23 +10,23 @@ module.exports = async function (context) {
 
   // validation
   if (isBlank(parameters.first)) {
-    print.info(`${context.runtime.brand} generate screen <name>\n`)
+    print.info(`${context.runtime.brand} generate modal <name>\n`)
     print.info('A name is required.')
     return
   }
 
   const name = pascalCase(parameters.first)
-  const screenName = name.endsWith('Screen') ? name : `${name}Screen`
-  const props = { name: screenName }
+  const modalName = name.endsWith('Modal') ? name : `${name}Modal`
+  const props = { name: modalName }
 
   const jobs = [
     {
-      template: `screen.ejs`,
-      target: `App/Containers/${screenName}.js`
+      template: `modal.ejs`,
+      target: `App/Modals/${modalName}.js`
     },
     {
-      template: `screen-style.ejs`,
-      target: `App/Containers/Styles/${screenName}Style.js`
+      template: `modal-style.ejs`,
+      target: `App/Modals/Styles/${modalName}Style.js`
     }
   ]
 
@@ -36,9 +36,9 @@ module.exports = async function (context) {
   // if using `react-navigation` go the extra step
   // and insert the screen into the nav router
   if (config.navigation === 'react-navigation') {
-    const appNavFilePath = `${process.cwd()}/App/Navigation/PrimaryNav.js`
-    const importToAdd = `import ${screenName} from '../Containers/${screenName}'`
-    const routeToAdd = `  ${screenName}: { screen: ${screenName} },`
+    const appNavFilePath = `${process.cwd()}/App/Navigation/AppNavigation.js`
+    const importToAdd = `import ${modalName} from '../Modals/${modalName}'`
+    const routeToAdd = `  ${modalName}: { screen: ${modalName} },`
 
     if (!filesystem.exists(appNavFilePath)) {
       const msg = `No '${appNavFilePath}' file found.  Can't insert screen.`
@@ -48,7 +48,7 @@ module.exports = async function (context) {
 
     // insert screen import
     ignite.patchInFile(appNavFilePath, {
-      after: patterns[patterns.constants.PATTERN_IMPORTS],
+      after: patterns[patterns.constants.PATTERN_IMPORTS_MODALS],
       insert: importToAdd
     })
 
@@ -58,6 +58,6 @@ module.exports = async function (context) {
       insert: routeToAdd
     })
   } else {
-    print.info(`Screen ${screenName} created, manually add it to your navigation`)
+    print.info(`Modals ${modalName} created, manually add it to your navigation`)
   }
 }

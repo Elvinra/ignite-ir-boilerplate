@@ -74,6 +74,21 @@ const ApplicationStyles = {
     borderColor: Colors.ember,
     alignItems: 'center',
     textAlign: 'center'
+  },
+  modal: {
+    modalContainer: {
+      flex: 1
+    },
+    container: {
+      backgroundColor: 'rgba(1, 1, 1, 0.7)',
+      justifyContent: 'center',
+      flex: 1,
+      padding: 50
+    },
+    innerContainer: {
+      backgroundColor: 'white',
+      flex: 1
+    }
   }
 }
 
