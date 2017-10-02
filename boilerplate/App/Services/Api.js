@@ -1,8 +1,10 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
+import Config from 'react-native-config'
+import R from 'ramda'
 
 // our "constructor"
-const create = (baseURL = 'https://api.github.com/') => {
+const create = (baseURL = Config.API_URL) => {
   // ------
   // STEP 1
   // ------
@@ -35,8 +37,6 @@ const create = (baseURL = 'https://api.github.com/') => {
   // way at this level.
   //
   const getRoot = () => api.get('')
-  const getRate = () => api.get('rate_limit')
-  const getUser = (username) => api.get('search/users', {q: username})
 
   // ------
   // STEP 3
@@ -50,12 +50,18 @@ const create = (baseURL = 'https://api.github.com/') => {
   // because it is scoped privately.  This is one way to create truly
   // private scoped goodies in JavaScript.
   //
-  return {
-    // a list of the API functions from step 2
-    getRoot,
-    getRate,
-    getUser
+  const objectReturn = {
+    getRoot
   }
+
+  const withCredentials = (bearerToken) => {
+    api.setHeaders({
+      'Authorization': `Bearer ${bearerToken}`
+    })
+    return objectReturn
+  }
+
+  return R.merge(objectReturn, { withCredentials })
 }
 
 // let's return back our create method as the default.
