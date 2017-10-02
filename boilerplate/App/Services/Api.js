@@ -1,10 +1,10 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
-import Config from 'react-native-config'
+// import Config from 'react-native-config'
 import R from 'ramda'
 
 // our "constructor"
-const create = (baseURL = Config.API_URL) => {
+const create = (baseURL = 'http://www.google.fr') => {
   // ------
   // STEP 1
   // ------
